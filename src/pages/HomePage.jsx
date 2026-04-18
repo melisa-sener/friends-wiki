@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import StatusView from '../components/StatusView.jsx'
 import { useAsyncData } from '../hooks/useAsyncData.js'
 import {
+  fetchFriendsEpisodes,
   fetchFriendsSeasons,
   fetchFriendsShow,
   formatRating,
@@ -11,11 +12,12 @@ import {
 
 function HomePage() {
   const { data, loading, error } = useAsyncData(async () => {
-    const [show, seasons] = await Promise.all([
+    const [show, seasons, episodes] = await Promise.all([
       fetchFriendsShow(),
       fetchFriendsSeasons(),
+      fetchFriendsEpisodes(),
     ])
-    return { show, seasons }
+    return { show, seasons, episodes }
   }, 'friends-home')
 
   return (
@@ -71,7 +73,7 @@ function HomePage() {
             <aside className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {[
                 { label: 'Seasons', value: data.seasons.length, color: '#8E6C88' },
-                { label: 'Episodes', value: 236, color: '#D6A54B' },
+                { label: 'Episodes', value: data.episodes.length, color: '#D6A54B' },
                 { label: 'TVmaze rating', value: formatRating(data.show.rating.average), color: '#556B5D' },
               ].map((item) => (
                 <div
