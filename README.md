@@ -11,7 +11,6 @@ This app lets users explore characters, episodes, seasons, and locations from th
 - Search and filter episodes
 - Explore seasons and episode detail pages
 - View iconic show locations
-- Smooth page-to-page navigation with scroll reset
 
 ## Tech Stack
 
@@ -20,6 +19,13 @@ This app lets users explore characters, episodes, seasons, and locations from th
 - React Router
 - Tailwind CSS
 - TVmaze API
+- Vercel
+
+## Live Demo
+
+This project is deployed on Vercel:
+
+- https://friends-wiki-nu.vercel.app/
 
 ## Getting Started
 
@@ -36,13 +42,6 @@ npm run dev
 ```
 
 3. Open the app in your browser at the local Vite URL shown in the terminal.
-
-## Available Scripts
-
-- `npm run dev` starts the development server
-- `npm run build` creates a production build
-- `npm run preview` previews the production build locally
-- `npm run lint` runs ESLint
 
 ## Project Structure
 
@@ -70,3 +69,4 @@ src/
 
 - API requests are handled through `src/services/tvmaze.js`.
 - Some character descriptions and location content are stored locally in `src/data/`.
+- Deployment is handled through Vercel.
